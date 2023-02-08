@@ -1,0 +1,6 @@
+region         = "ap-south-1"
+bucket         = "as1506-static-website"
+acl            = "public-read"
+policy         = "policy.json"
+index_document = "index.html"
+error_document = "error.html"
