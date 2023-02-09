@@ -2,7 +2,7 @@ provider "aws" {
   region = var.region
 }
 
-resource "aws_s3_bucket" "website-bucket" {
+resource "aws_s3_bucket" "website1-bucket" {
   bucket = var.bucket
     tags = {
     // Name        = "CI/CD Demo"
@@ -10,7 +10,7 @@ resource "aws_s3_bucket" "website-bucket" {
   } 
 }
  
-resource "aws_s3_bucket_website_configuration" "website-configuration" {
+resource "aws_s3_bucket_website_configuration" "website1-configuration" {
   bucket = aws_s3_bucket.website-bucket.id
 
   index_document {
@@ -22,12 +22,12 @@ resource "aws_s3_bucket_website_configuration" "website-configuration" {
   } 
 }
   
-  resource "aws_s3_bucket_acl" "bucket-acl" {
+  resource "aws_s3_bucket_acl" "bucket1-acl" {
   bucket = aws_s3_bucket.website-bucket.id
    acl    = var.acl
 }
   
-  resource "aws_s3_bucket_policy" "bucket-policy" {
+  resource "aws_s3_bucket_policy" "bucket1-policy" {
   bucket = aws_s3_bucket.website-bucket.id
   policy = file(var.policy)
 }
